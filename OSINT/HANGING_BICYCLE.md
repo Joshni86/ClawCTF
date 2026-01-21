@@ -1,4 +1,6 @@
-![alt text](hanging_bicycle.jpeg)
+<img src="hanging_bicycle.jpeg" width="50%">
+>
+
 What is the story behind the hanging bicycle?\
 Flag format: RMDCTF{xxxx}
 <details>
