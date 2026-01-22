@@ -1,7 +1,7 @@
 <img src="hanging_bicycle.jpeg" width="50%">
 
 What is the story behind the hanging bicycle?\
-Flag format: CLAWCTF{lowercase}
+Flag format: ClawCTF{lowercase}
 <details>
 <summary>Solution</summary>
 Reverse search the image and find this link
@@ -12,5 +12,5 @@ There will be a medium article link in the comments
 
 https://medium.com/@blogsofsuganeswaran/the-cycle-that-carries-a-love-story-hidden-in-the-walls-of-chepauk-08e748627881
 
-Flag: CLAWCTF{love}
+Flag: ClawCTF{love}
 </details>
