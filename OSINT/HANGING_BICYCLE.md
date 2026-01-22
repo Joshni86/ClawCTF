@@ -1,7 +1,7 @@
 <img src="hanging_bicycle.jpeg" width="50%">
 
 What is the story behind the hanging bicycle?\
-Flag format: CLAWCTF{xxxx}
+Flag format: CLAWCTF{lowercase}
 <details>
 <summary>Solution</summary>
 Reverse search the image and find this link
