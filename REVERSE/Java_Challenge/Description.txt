@@ -1,0 +1,43 @@
+💡 Hints
+The program behaves differently with command-line arguments
+
+Not all code paths are executed during normal operation
+
+Some methods are never called but contain important information
+
+Look for string manipulation and encoding patterns
+
+Multiple classes work together to build the final flag
+
+🛠️ Recommended Tools
+JD-GUI - Java Decompiler (GUI)
+
+CFR - Another Java decompiler
+
+javap - Built-in Java class file disassembler
+
+Bytecode Viewer - All-in-one analysis tool
+
+Any text editor - For examining decompiled code
+
+🎯 Solving Tips
+Start by decompiling the JAR file
+
+Examine all class files, not just the main one
+
+Look for unused methods and dead code
+
+Pay attention to static initializers and constructors
+
+The flag is assembled from multiple parts
+
+🏆 Learning Outcomes
+Understanding Java bytecode structure
+
+Recognizing common obfuscation techniques
+
+Analyzing control flow in compiled code
+
+Extracting hidden data from binaries
+
+"Sometimes the most important things are hidden in plain sight... or in this case, in the bytecode!"

@@ -1,0 +1,21 @@
+🎯 Solving Tips
+Start with simple string extraction
+
+Check all metadata fields
+
+Look at node names and attributes
+
+The flag might be split across multiple locations
+
+Remember: ONNX is a protobuf format
+
+🏆 Learning Outcomes
+Understanding ONNX model structure
+
+Inspecting machine learning model metadata
+
+Recognizing data hiding techniques in ML models
+
+Working with protocol buffer serialization
+
+"Machine learning models aren't just weights and biases - they can carry secrets too!"
