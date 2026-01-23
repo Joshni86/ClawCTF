@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - TechCorp Cloud{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <div>
+            <h1>Welcome back, {{ username }}!</h1>
+            <p class="role-badge role-{{ role }}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Current Tier: <strong>{{ role|upper }}</strong>
+            </p>
+        </div>
+        <div class="header-actions">
+            <button class="btn-secondary" onclick="alert('Upgrade coming soon!')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+                Upgrade Plan
+            </button>
+        </div>
+    </div>
+
+    <!-- Role Progress -->
+    <div class="role-progress-card">
+        <h3>Account Tier Progress</h3>
+        <div class="tier-ladder">
+            <div class="tier-item {% if role_level >= 0 %}tier-active{% endif %}">
+                <div class="tier-icon">🆓</div>
+                <div class="tier-name">Free</div>
+            </div>
+            <div class="tier-connector"></div>
+            <div class="tier-item {% if role_level >= 1 %}tier-active{% endif %}">
+                <div class="tier-icon">⭐</div>
+                <div class="tier-name">Premium</div>
+            </div>
+            <div class="tier-connector"></div>
+            <div class="tier-item {% if role_level >= 2 %}tier-active{% endif %}">
+                <div class="tier-icon">💼</div>
+                <div class="tier-name">Business</div>
+            </div>
+            <div class="tier-connector"></div>
+            <div class="tier-item {% if role_level >= 3 %}tier-active{% endif %}">
+                <div class="tier-icon">🏢</div>
+                <div class="tier-name">Enterprise</div>
+            </div>
+            <div class="tier-connector"></div>
+            <div class="tier-item {% if role_level >= 4 %}tier-active{% endif %}">
+                <div class="tier-icon">👑</div>
+                <div class="tier-name">Admin</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>Your Current Features</h3>
+            <ul class="feature-list">
+                {% for feature in features %}
+                <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    {{ feature }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% if role != 'admin' %}
+        <div class="upgrade-card">
+            <div class="lock-icon">🔒</div>
+            <h3>Unlock More Features</h3>
+            <p>Upgrade to access advanced cloud services, security vault, and administrative tools.</p>
+            <div class="upgrade-hint">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Hint: Check your browser's developer tools...</span>
+            </div>
+        </div>
+        {% else %}
+        <div class="vault-card">
+            <div class="vault-icon">🔐</div>
+            <h3>Security Vault Unlocked!</h3>
+            <p>You have admin access. Visit the vault to retrieve your secrets.</p>
+            <a href="/vault" class="btn-primary">
+                Access Vault
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Usage Stats -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                </svg>
+            </div>
+            <div class="stat-info">
+                <div class="stat-label">Storage Used</div>
+                <div class="stat-value">2.3 GB <span class="stat-sub">/ 5 GB</span></div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+            </div>
+            <div class="stat-info">
+                <div class="stat-label">API Requests</div>
+                <div class="stat-value">1,247 <span class="stat-sub">this month</span></div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon purple">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            </div>
+            <div class="stat-info">
+                <div class="stat-label">Team Members</div>
+                <div class="stat-value">1 <span class="stat-sub">user</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
