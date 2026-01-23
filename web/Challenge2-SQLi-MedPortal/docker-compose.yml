@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  sqli-medportal:
+    build: .
+    container_name: sqli-medportal-challenge
+    ports:
+      - "5001:5001"
+    environment:
+      - FLASK_ENV=production
+      - PORT=5001
+    restart: unless-stopped

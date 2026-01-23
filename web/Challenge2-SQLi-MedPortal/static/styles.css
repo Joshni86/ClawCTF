@@ -1,0 +1,220 @@
+:root {
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --card-accent: #f1f5f9;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --blue: #3b82f6;
+    --blue-dark: #2563eb;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --success: #10b981;
+    --success-bg: #d1fae5;
+    --danger: #ef4444;
+    --danger-bg: #fee2e2;
+    --info: #3b82f6;
+    --info-bg: #dbeafe;
+    --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 32px 24px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header .title {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+.header .subtitle {
+    margin: 8px 0 0 0;
+    font-size: 1rem;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid var(--card-border);
+    overflow: hidden;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    outline: none;
+    background: var(--bg);
+    color: var(--text-primary);
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.form-input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    background: white;
+}
+
+.form-input::placeholder {
+    color: var(--text-muted);
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+}
+
+.btn.primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+}
+
+.btn.primary:active {
+    transform: translateY(0);
+}
+
+.btn.secondary {
+    background: var(--card-accent);
+    color: var(--text-primary);
+    border: 2px solid var(--card-border);
+}
+
+.btn.secondary:hover {
+    background: var(--bg);
+    border-color: var(--text-muted);
+}
+
+.alert {
+    padding: 16px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+}
+
+.alert.success {
+    background: var(--success-bg);
+    color: var(--success);
+    border: 2px solid var(--success);
+}
+
+.alert.error {
+    background: var(--danger-bg);
+    color: var(--danger);
+    border: 2px solid var(--danger);
+}
+
+.alert.info {
+    background: var(--info-bg);
+    color: var(--info);
+    border: 2px solid var(--info);
+}
+
+.page-footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    background: var(--card-bg);
+    border-top: 1px solid var(--card-border);
+}
+
+@media (max-width: 768px) {
+    .header .title {
+        font-size: 2rem;
+    }
+
+    .header .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 24px 16px;
+    }
+
+    .card {
+        box-shadow: none;
+        border-radius: var(--radius-sm);
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.3s ease-out;
+}
