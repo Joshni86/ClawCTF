@@ -1,0 +1,80 @@
+name: Deploy CTF Challenges to Azure
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  AZURE_WEBAPP_PACKAGE_PATH: '.'
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  deploy-challenge1:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: |
+        cd web/Challenge1-ClawCTF-BruteForce
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ secrets.AZURE_WEBAPP_NAME_CHALLENGE1 }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_CHALLENGE1 }}
+        package: ./web/Challenge1-ClawCTF-BruteForce
+
+  deploy-challenge2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: |
+        cd web/Challenge2-SQLi-MedPortal
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ secrets.AZURE_WEBAPP_NAME_CHALLENGE2 }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_CHALLENGE2 }}
+        package: ./web/Challenge2-SQLi-MedPortal
+
+  deploy-challenge3:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: |
+        cd web/Challenge3-JWT-TechCorp
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ secrets.AZURE_WEBAPP_NAME_CHALLENGE3 }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_CHALLENGE3 }}
+        package: ./web/Challenge3-JWT-TechCorp
