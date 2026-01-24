@@ -26,7 +26,6 @@ jobs:
         app-name: ${{ secrets.AZURE_WEBAPP_NAME_CHALLENGE1 }}
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_CHALLENGE1 }}
         package: ./web/Challenge1-ClawCTF-BruteForce
-        startup-command: 'gunicorn --bind=0.0.0.0 --timeout 600 app:app'
 
   deploy-challenge2:
     runs-on: ubuntu-latest
@@ -44,7 +43,6 @@ jobs:
         app-name: ${{ secrets.AZURE_WEBAPP_NAME_CHALLENGE2 }}
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_CHALLENGE2 }}
         package: ./web/Challenge2-SQLi-MedPortal
-        startup-command: 'gunicorn --bind=0.0.0.0 --timeout 600 app:app'
 
   deploy-challenge3:
     runs-on: ubuntu-latest
@@ -62,4 +60,3 @@ jobs:
         app-name: ${{ secrets.AZURE_WEBAPP_NAME_CHALLENGE3 }}
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_CHALLENGE3 }}
         package: ./web/Challenge3-JWT-TechCorp
-        startup-command: 'gunicorn --bind=0.0.0.0 --timeout 600 app:app'
