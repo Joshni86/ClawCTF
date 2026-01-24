@@ -20,6 +20,12 @@ jobs:
       with:
         python-version: ${{ env.PYTHON_VERSION }}
     
+    - name: Install dependencies
+      run: |
+        cd web/Challenge1-ClawCTF-BruteForce
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt --target .
+    
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
@@ -36,6 +42,12 @@ jobs:
       with:
         python-version: ${{ env.PYTHON_VERSION }}
     
+    - name: Install dependencies
+      run: |
+        cd web/Challenge2-SQLi-MedPortal
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt --target .
+    
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
@@ -51,6 +63,12 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: |
+        cd web/Challenge3-JWT-TechCorp
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt --target .
     
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
