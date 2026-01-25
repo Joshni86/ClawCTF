@@ -1,0 +1,12 @@
+services:
+  verifier:
+    build: .
+    image: model-steal-verifier:latest
+    container_name: model-steal-verifier
+    restart: unless-stopped
+    environment:
+      # Set this on the VPS (do not commit real secrets):
+      # export CTF_SEED="a-long-random-string"
+      - CTF_SEED=${CTF_SEED}
+    ports:
+      - "5000:5000"

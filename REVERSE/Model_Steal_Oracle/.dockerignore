@@ -1,0 +1,17 @@
+# Keep the oracle binary and sources out of the server container
+model_oracle
+model_oracle.exe
+*.cpp
+*.o
+*.obj
+*.pdb
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+
+# VCS/editor
+.git/
+.vscode/
+*.log
