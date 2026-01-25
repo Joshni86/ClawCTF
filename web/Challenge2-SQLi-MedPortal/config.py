@@ -22,10 +22,10 @@ class Config:
     PORT = int(os.environ.get('PORT', 5001))
     
     # Application settings
-    FLAG_VALUE = "CLAWCTF{SQLi_Inj3ct0r_Pr0}"
-    COMPANY_NAME = "Sacred Heart Medical Center"
-    COMPANY_SHORT = "SHM"
-    COMPANY_YEAR = 2025
+    FLAG_VALUE = "CLAWCTF{data_can_cross_dimensions}"
+    COMPANY_NAME = "Endurance Mission Control"
+    COMPANY_SHORT = "EMC"
+    COMPANY_YEAR = 2026
 
 
 class DevelopmentConfig(Config):

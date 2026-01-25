@@ -1,9 +1,12 @@
 """
-Sacred Heart Medical - Electronic Health Records Portal
+Endurance Mission Control - Deep Space Research Terminal
 CTF Challenge: SQL Injection Authentication Bypass
 
 This is an intentionally vulnerable web application for educational purposes.
 DO NOT deploy this in a production environment.
+
+The system claims only authentication is possible.
+But some channels carry more than their intended payload.
 """
 
 from flask import Flask, render_template, request, redirect, url_for, session
@@ -26,16 +29,17 @@ def create_app(config_name='default'):
         """Render the login page."""
         session.clear()
         return render_template('login.html', 
-                             title='SHM Medical Portal - Secure Login',
+                             title='Endurance Mission Control - Authentication',
                              company_name=app.config['COMPANY_NAME'],
                              company_short=app.config['COMPANY_SHORT'])
     
     @app.route('/login', methods=['POST'])
     def login():
         """
-        Handle login authentication.
+        Handle authentication channel verification.
         
         This endpoint is vulnerable to SQL injection for educational purposes.
+        The query assumes data flows in one direction only.
         """
         username = request.form.get('username', '')
         password = request.form.get('password', '')
@@ -52,20 +56,20 @@ def create_app(config_name='default'):
     
     @app.route('/success')
     def success():
-        """Display success page with flag."""
+        """Display success page with recovered transmission."""
         if not session.get('authenticated'):
             return redirect(url_for('index'))
         
         return render_template('success.html', 
-                             title='Access Granted - SHM Portal',
+                             title='Signal Received - Endurance',
                              flag=app.config['FLAG_VALUE'],
-                             username=session.get('username', 'User'))
+                             username=session.get('username', 'Observer'))
     
     @app.route('/error')
     def error():
-        """Display error page for failed login."""
+        """Display error page for failed authentication."""
         return render_template('error.html', 
-                             title='Authentication Failed - SHM Portal')
+                             title='No Signal Detected - Endurance')
     
     @app.route('/logout')
     def logout():
