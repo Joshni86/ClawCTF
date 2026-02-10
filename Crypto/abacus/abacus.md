@@ -4,6 +4,8 @@ more than just dots and dashes.)
 
 First inspect the `graffiti.png`
 You will find :
+<img width="297" height="420" alt="soroban" src="https://github.com/user-attachments/assets/3438b4eb-9284-424b-a73b-4c08d70ad6c1" />
+
 
 It is actually Soroban :
 https://www.dcode.fr/soroban-abacus
