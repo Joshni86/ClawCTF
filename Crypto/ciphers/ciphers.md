@@ -22,5 +22,7 @@ ZixtZQC{3kZlA3a_A@q@}
 
 The above code is ceaser cipher - you may use dcode.fr (https://www.dcode.fr/caesar-cipher)
 you will get a result like the following:
+<img width="557" height="1067" alt="Screenshot 2026-02-10 135057" src="https://github.com/user-attachments/assets/c7da221e-da44-4cf7-babc-e0ad75e058eb" />
+
 
 Flag: `ClawCTF{3nCoD3d_D@t@}`
